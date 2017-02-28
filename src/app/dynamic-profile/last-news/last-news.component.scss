@@ -1,0 +1,12 @@
+ul.lastNews{
+  max-width: 500px;
+  padding: 5px;
+  background: #ddd;
+  list-style: none;
+  li{
+    padding:10px;
+  }
+  li:nth-child(odd){
+    background: #aaa;
+  }
+}
