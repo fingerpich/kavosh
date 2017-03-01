@@ -1,12 +1,30 @@
-ul.lastNews{
-  max-width: 500px;
+.lastNews{
+  max-width: 600px;
+  margin: auto;
   padding: 5px;
-  background: #ddd;
-  list-style: none;
-  li{
-    padding:10px;
+  background: none;
+  h3.title{
+    text-align: center;
+    color:#444;
+    margin: 5px;
+    padding: 10px;
+    border-bottom:1px solid #e5e5e5;
   }
-  li:nth-child(odd){
-    background: #aaa;
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
+      padding: 25px;
+
+      strong {
+        color: #333;
+      }
+      small {
+        color: #555;
+      }
+    }
+    li:nth-child(odd) {
+      background: #f3f3f3;
+    }
   }
 }

@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { DynamicProfileComponent } from './dynamic-profile/dynamic-profile.component';
 import { LastNewsComponent } from './dynamic-profile/last-news/last-news.component';
 import { InfoBoxComponent } from './dynamic-profile/info-box/info-box.component';
+import { RelatedBoxComponent } from './dynamic-profile/related-box/related-box.component';
 @NgModule({
   declarations: [
     AppComponent,
     DynamicProfileComponent,
     LastNewsComponent,
-    InfoBoxComponent
+    InfoBoxComponent,
+    RelatedBoxComponent
   ],
   imports: [
     MaterialModule,

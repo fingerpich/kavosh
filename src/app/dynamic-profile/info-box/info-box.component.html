@@ -1,4 +1,13 @@
-<h4>
+<div class="profileAvatar">
+  <img [src]="profileInfo.image">
+</div>
+<h4 class="profileName">
   {{profileInfo.name}}
 </h4>
-<p>{{profileInfo.desc}}</p>
+<p class="profileDescription">{{profileInfo.description}}</p>
+<ul class="info-box">
+  <li *ngFor="let row of profileInfo.info_box">
+    <b class="name">{{row.name}}:</b>
+    <span class="value">{{row.value}}</span>
+  </li>
+</ul>

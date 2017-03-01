@@ -1,20 +1,16 @@
 import { Injectable }              from '@angular/core';
-import { Http, Response }          from '@angular/http';
+import {Http, Response, URLSearchParams}          from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {News} from "./last-news/news";
-import {Info} from "./info-box/info";
+import {URLS} from "../URLS";
 
 @Injectable()
 export class DynamicProfileServices {
-  private lastNewsUrl = "localhost:/onja";
-  private profileUrl = "localhost:/onja";
-
   constructor(private http: Http) {
   }
 
-  getLastNews(): Observable<News[]> {
+  getLastNews(): Observable<Object[]> {
     // return this.http.get(this.lastNewsUrl)
     //   .map(this.extractData)
     //   .catch(this.handleError);
@@ -27,21 +23,22 @@ export class DynamicProfileServices {
     ];
     return Observable.of(list);
   }
-  getProfile():Observable<Info> {
-    // return this.http.get(this.profileUrl)
-    //   .map(this.extractData)
-    //   .catch(this.handleError);
+  getProfile(entityId):Observable<Object> {
+    let params = new URLSearchParams();
+    params.set('entityId', entityId);
+    return this.http.get(URLS.PROFILE_URL,{search:params})
+      .map(this.extractData)
+      .catch(this.handleError);
 
-    const profileInfo={
-      name:"Ahmad Mirzayi",
-      desc:"he is a gentle man, he has green eyes and talks modesty"
-    };
-    return Observable.of(profileInfo);
+    // const profileInfo={
+    //   name:"Ahmad Mirzayi",
+    //   desc:"he is a gentle man, he has green eyes and talks modesty"
+    // };
+    // return Observable.of(profileInfo);
   }
 
   private extractData(res: Response) {
-    let body = res.json();
-    return body.data || {};
+    return res.json();
   }
 
   private handleError(error: Response | any) {

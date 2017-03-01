@@ -14,7 +14,7 @@ export class InfoBoxComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profileService.getProfile()
+    this.profileService.getProfile(3)
       .subscribe(
         data => this.profileInfo = data,
         err => {console.log(err)},

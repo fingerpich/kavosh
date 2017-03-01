@@ -1,13 +1,38 @@
 <div>
   <div class="searchBox">
-
-    <md-input-container>
+    <md-input-container class="searchContainer">
       <input mdInput placeholder="search">
     </md-input-container>
-    <div>
-      <kavosh-last-news></kavosh-last-news>
-      <kavosh-info-box></kavosh-info-box>
+  </div>
+  <div class="profile">
+    <div class="containerX">
+      <div [fxLayout]="row">
+        <div fxFlex>
+          <kavosh-last-news></kavosh-last-news>
+          <kavosh-related-box name="Organizations" type="related_organization"></kavosh-related-box>
+          <kavosh-related-box name="Locations" type="related_locations"></kavosh-related-box>
+          <kavosh-related-box name="Keywords" type="keywords"></kavosh-related-box>
+          <kavosh-related-box name="People" type="related_people"></kavosh-related-box>
+        </div>
+
+        <kavosh-info-box fxFlex="20"></kavosh-info-box>
+
+      </div>
     </div>
+  </div>
+
+  <div class="profile">
+    <div class="containerX">
+      <div fxLayout="column" fxLayoutAlign="start stretch">
+        <kavosh-info-box></kavosh-info-box>
+        <kavosh-last-news></kavosh-last-news>
+        <kavosh-related-box name="Organizations" type="related_organization"></kavosh-related-box>
+        <kavosh-related-box name="Locations" type="related_locations"></kavosh-related-box>
+        <kavosh-related-box name="Keywords" type="keywords"></kavosh-related-box>
+        <kavosh-related-box name="People" type="related_people"></kavosh-related-box>
+      </div>
+    </div>
+  </div>
 
     <!--<md-input-container>-->
       <!--<input mdInput placeholder="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">-->
@@ -18,5 +43,4 @@
         <!--{{ state }}-->
       <!--</md-option>-->
     <!--</md-autocomplete>-->
-  </div>
 </div>

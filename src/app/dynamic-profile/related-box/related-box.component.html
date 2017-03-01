@@ -1,0 +1,8 @@
+<div fxLayout="row" fxLayoutAlign="center stretch">
+  <div>
+    <h4 class="group-title" *ngIf="relatedList.length">{{groupName}}</h4>
+    <md-chip-list>
+      <md-chip *ngFor="let related of relatedList">{{related.name||related}}</md-chip>
+    </md-chip-list>
+  </div>
+</div>
