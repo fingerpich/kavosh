@@ -4,10 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {News} from "./last-news/news";
+import {Info} from "./info-box/info";
 
 @Injectable()
 export class DynamicProfileServices {
   private lastNewsUrl = "localhost:/onja";
+  private profileUrl = "localhost:/onja";
 
   constructor(private http: Http) {
   }
@@ -24,6 +26,17 @@ export class DynamicProfileServices {
       {title: "news4", summary: "news 4 is the most horror news for whole time"},
     ];
     return Observable.of(list);
+  }
+  getProfile():Observable<Info> {
+    // return this.http.get(this.profileUrl)
+    //   .map(this.extractData)
+    //   .catch(this.handleError);
+
+    const profileInfo={
+      name:"Ahmad Mirzayi",
+      desc:"he is a gentle man, he has green eyes and talks modesty"
+    };
+    return Observable.of(profileInfo);
   }
 
   private extractData(res: Response) {

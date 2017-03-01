@@ -8,11 +8,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { DynamicProfileComponent } from './dynamic-profile/dynamic-profile.component';
 import { LastNewsComponent } from './dynamic-profile/last-news/last-news.component';
+import { InfoBoxComponent } from './dynamic-profile/info-box/info-box.component';
 @NgModule({
   declarations: [
     AppComponent,
     DynamicProfileComponent,
-    LastNewsComponent
+    LastNewsComponent,
+    InfoBoxComponent
   ],
   imports: [
     MaterialModule,
