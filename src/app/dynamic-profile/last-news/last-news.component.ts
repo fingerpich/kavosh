@@ -6,17 +6,17 @@ import {DynamicProfileServices} from "../dynamic-profile-services";
   templateUrl: './last-news.component.html',
   styleUrls: ['./last-news.component.scss'],
 })
-export class LastNewsComponent implements OnInit {
-  lastNews=[];
+export class RecentNewsComponent implements OnInit {
+  recentNews=[];
   ngOnInit() {
-  }
-
-  constructor(private profileService:DynamicProfileServices) {
-    this.profileService.getLastNews()
+    this.profileService.getRecentNews(3)
       .subscribe(
-        data => this.lastNews = data,
+        data => this.recentNews = data,
         err => {console.log(err)},
         () => console.log('last News Completed')
       );
+  }
+
+  constructor(private profileService:DynamicProfileServices) {
   }
 }

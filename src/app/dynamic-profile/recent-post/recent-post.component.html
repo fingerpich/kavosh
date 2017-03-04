@@ -1,0 +1,11 @@
+<div class="recent-post">
+  <h3 class="title">Recent Posts</h3>
+  <ul >
+    <li *ngFor="let report of recentPosts ">
+      <div>
+        <strong>{{ report.url }}</strong>
+        <small>{{ report.title }}</small>
+      </div>
+    </li>
+  </ul>
+</div>

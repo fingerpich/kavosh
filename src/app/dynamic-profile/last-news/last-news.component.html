@@ -1,10 +1,10 @@
-<div class="lastNews">
-  <h3 class="title">Last News</h3>
+<div class="recent-news">
+  <h3 class="title">Recent News</h3>
   <ul >
-    <li *ngFor="let report of lastNews ">
+    <li *ngFor="let report of recentNews ">
       <div>
-        <strong>{{ report.title }}</strong>
-        <small>{{ report.summary }}</small>
+        <strong>{{ report.url }}</strong>
+        <small>{{ report.title }}</small>
       </div>
     </li>
   </ul>

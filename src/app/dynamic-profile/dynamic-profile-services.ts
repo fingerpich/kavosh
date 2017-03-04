@@ -7,28 +7,41 @@ import {URLS} from "../URLS";
 
 @Injectable()
 export class DynamicProfileServices {
-  private getProfileObservable:Observable<Object>;
-  constructor(private http: Http) {}
+  private getProfileObservable: Observable<Object>;
+  private getRecentNewsObservable: Observable<Object>;
 
-  getLastNews(): Observable<Object[]> {
-    // return this.http.get(this.lastNewsUrl)
-    //   .map(this.extractData)
-    //   .catch(this.handleError);
-
-    let list = [
-      {title: "news1", summary: "news 1 is the most horror news for whole time"},
-      {title: "news2", summary: "news 2 is the ..."},
-      {title: "news3", summary: "news 3 is the most horror news for whole time"},
-      {title: "news4", summary: "news 4 is the most horror news for whole time"},
-    ];
-    return Observable.of(list);
+  constructor(private http: Http) {
   }
 
-  getProfile(entityId):Observable<Object> {
+  getRecentPosts(entityId): Observable<Object[]> {
     let params = new URLSearchParams();
     params.set('entityId', entityId);
-    if(!this.getProfileObservable){
-      this.getProfileObservable=this.http.get(URLS.PROFILE_URL, {search: params})
+    if (!this.getRecentNewsObservable) {
+      this.getRecentNewsObservable = this.http.get(URLS.RECENT_POST_URL, {search: params})
+        .map(this.extractData)
+        .catch(this.handleError)
+        .share();
+    }
+    return this.getRecentNewsObservable;
+  }
+
+  getRecentNews(entityId): Observable<Object[]> {
+    let params = new URLSearchParams();
+    params.set('entityId', entityId);
+    if (!this.getRecentNewsObservable) {
+      this.getRecentNewsObservable = this.http.get(URLS.RECENT_NEWS_URL, {search: params})
+        .map(this.extractData)
+        .catch(this.handleError)
+        .share();
+    }
+    return this.getRecentNewsObservable;
+  }
+
+  getProfile(entityId): Observable<Object> {
+    let params = new URLSearchParams();
+    params.set('entityId', entityId);
+    if (!this.getProfileObservable) {
+      this.getProfileObservable = this.http.get(URLS.PROFILE_URL, {search: params})
         .map(this.extractData)
         .catch(this.handleError)
         .share();
