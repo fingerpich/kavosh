@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import 'rxjs/add/operator/startWith';
+import {DynamicProfileServices} from "./dynamic-profile-services";
 
 @Component({
   selector: 'kavosh-dynamic-profile',
   templateUrl: './dynamic-profile.component.html',
-  styleUrls: ['./dynamic-profile.component.scss']
+  styleUrls: ['./dynamic-profile.component.scss'],
+  providers: [DynamicProfileServices]
 })
 export class DynamicProfileComponent implements OnInit {
   stateCtrl: FormControl;

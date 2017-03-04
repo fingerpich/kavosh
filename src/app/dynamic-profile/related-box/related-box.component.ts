@@ -5,7 +5,6 @@ import {DynamicProfileServices} from "../dynamic-profile-services";
   selector: 'kavosh-related-box',
   templateUrl: './related-box.component.html',
   styleUrls: ['./related-box.component.scss'],
-  providers: [DynamicProfileServices]
 })
 export class RelatedBoxComponent implements OnInit {
 

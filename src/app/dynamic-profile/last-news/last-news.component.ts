@@ -5,7 +5,6 @@ import {DynamicProfileServices} from "../dynamic-profile-services";
   selector: 'kavosh-last-news',
   templateUrl: './last-news.component.html',
   styleUrls: ['./last-news.component.scss'],
-  providers: [DynamicProfileServices]
 })
 export class LastNewsComponent implements OnInit {
   lastNews=[];

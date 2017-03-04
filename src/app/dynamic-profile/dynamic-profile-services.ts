@@ -1,14 +1,14 @@
 import { Injectable }              from '@angular/core';
 import {Http, Response, URLSearchParams}          from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {URLS} from "../URLS";
 
 @Injectable()
 export class DynamicProfileServices {
-  constructor(private http: Http) {
-  }
+  private getProfileObservable:Observable<Object>;
+  constructor(private http: Http) {}
 
   getLastNews(): Observable<Object[]> {
     // return this.http.get(this.lastNewsUrl)
@@ -23,13 +23,17 @@ export class DynamicProfileServices {
     ];
     return Observable.of(list);
   }
+
   getProfile(entityId):Observable<Object> {
     let params = new URLSearchParams();
     params.set('entityId', entityId);
-    return this.http.get(URLS.PROFILE_URL,{search:params})
-      .map(this.extractData)
-      .catch(this.handleError);
-
+    if(!this.getProfileObservable){
+      this.getProfileObservable=this.http.get(URLS.PROFILE_URL, {search: params})
+        .map(this.extractData)
+        .catch(this.handleError)
+        .share();
+    }
+    return this.getProfileObservable;
     // const profileInfo={
     //   name:"Ahmad Mirzayi",
     //   desc:"he is a gentle man, he has green eyes and talks modesty"

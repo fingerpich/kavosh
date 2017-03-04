@@ -5,7 +5,6 @@ import {DynamicProfileServices} from "../dynamic-profile-services";
   selector: 'kavosh-info-box',
   templateUrl: './info-box.component.html',
   styleUrls: ['./info-box.component.scss'],
-  providers: [DynamicProfileServices]
 })
 export class InfoBoxComponent implements OnInit {
   profileInfo={};
